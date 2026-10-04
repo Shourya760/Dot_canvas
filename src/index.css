@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-hand: 'Caveat', 'Patrick Hand', cursive, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  user-select: none;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', 'Patrick Hand', cursive, sans-serif;
+}
+
+.ash-away {
+  pointer-events: none;
+  transform-origin: center;
+  animation: ash-away 850ms ease-in forwards;
+}
+
+@keyframes ash-away {
+  0% {
+    opacity: 1;
+    filter: grayscale(0) blur(0);
+    transform: translateY(0) scale(1);
+    clip-path: inset(0 0 0 0);
+  }
+  45% {
+    opacity: 0.7;
+    filter: grayscale(1) blur(1px);
+    transform: translate(6px, -5px) scale(0.98);
+    clip-path: inset(0 0 10% 0);
+  }
+  100% {
+    opacity: 0;
+    filter: grayscale(1) blur(7px);
+    transform: translate(18px, -22px) scale(0.9);
+    clip-path: inset(55% 0 45% 0);
+  }
+}
+
+/* Dot grid pattern with dark mode support */
+.dot-grid {
+  background-color: #ffffff;
+  background-image: radial-gradient(#d4d4d8 1.25px, transparent 1.25px);
+  background-size: 24px 24px;
+}
+
+.dark .dot-grid,
+.dot-grid.dark {
+  background-color: #121214;
+  background-image: radial-gradient(#27272a 1.25px, transparent 1.25px);
+}
